@@ -25,8 +25,13 @@
 
   <!-- Labels -->
   <div>
-    <h2>Labels</h2>
-
+   @if( labelsQuery.isLoading() ) {
+    <p>Estamos cargando</p>
+    } @else {
+      <pre>
+        {{ labelsQuery.data() | json }}
+      </pre>
+    }
 
     <!-- Todo: Label Selector -->
   </div>
