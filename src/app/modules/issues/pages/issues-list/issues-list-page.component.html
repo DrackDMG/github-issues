@@ -13,7 +13,6 @@
 
   <!-- Listado -->
   <div class="mt-4 flex flex-col col-span-2">
-    <h2>Issues</h2>
     <a routerLink="/issue/123">Ir a issue 123</a>
     <!-- Todo: Listado de issues -->
 
@@ -28,9 +27,7 @@
    @if( labelsQuery.isLoading() ) {
     <p>Estamos cargando</p>
     } @else {
-      <pre>
-        {{ labelsQuery.data() | json }}
-      </pre>
+      <app-labels-selector [labels]="labelsQuery.data() ?? []" />
     }
 
     <!-- Todo: Label Selector -->
