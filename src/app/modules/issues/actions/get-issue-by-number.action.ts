@@ -1,7 +1,7 @@
 
 import { sleep } from '@helpers/sleep';
 import { GitHubIssue, GitHubLabel } from '../interfaces';
-import { environment } from 'src/environments/environment.development';
+import { environment } from '../../../../environments/environment.development';
 
 const BASE_URL = environment.baseUrl;
 const GITHUB_TOKEN = environment.gitHubToken;
