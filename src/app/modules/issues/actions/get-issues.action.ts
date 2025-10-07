@@ -5,10 +5,14 @@ import { environment } from '../../../../environments/environment.development';
 const BASE_URL = environment.baseUrl;
 const GITHUB_TOKEN = environment.gitHubToken;
 
-export const getIssues = async (state: State = State.All): Promise<GitHubIssue[]> => {
+export const getIssues = async (state: State = State.All, labels: string[]): Promise<GitHubIssue[]> => {
   await sleep(1500);
   const params = new URLSearchParams({});
   params.append('state', state);
+
+  if (labels.length > 0) {
+    params.append('labels', labels.join(','));
+  }
 
   try {
     const resp = await fetch(`${BASE_URL}/issues?${params.toString()}`, {
